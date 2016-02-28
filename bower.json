@@ -1,0 +1,25 @@
+{
+  "name": "mean-machine-workflow",
+  "description": "",
+  "main": "server.js",
+  "authors": [
+    "Gary Pang",
+    "\"CodeWritingCow\""
+  ],
+  "license": "ISC",
+  "moduleType": [],
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "^3.3.6",
+    "angular": "^1.5.0",
+    "angular-route": "^1.5.0",
+    "angular-animate": "^1.5.0"
+  }
+}

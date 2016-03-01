@@ -6,7 +6,8 @@ var gulp = require('gulp'),
 	jshint = require('gulp-jshint'),
 	concat = require('gulp-concat'),
 	uglify = require('gulp-uglify'),
-	ngAnnotate = require('gulp-ng-annotate');
+	ngAnnotate = require('gulp-ng-annotate'),
+	nodemon = require('gulp-nodemon');
 
 // define a task called css
 gulp.task('css', function() {
@@ -54,3 +55,19 @@ gulp.task('watch', function() {
 	// watch js files and run lint and run js and angular tasks
 	gulp.watch(['server.js', 'public/app/*.js', 'public/app/**/*.js'], ['js', 'angular']);
 });
+
+// the nodemon task
+gulp.task('nodemon', function() {
+	nodemon({
+		script: 'server.js',
+		ext: 'js less html'
+	})
+		.on('start', ['watch'])
+		.on('change', ['watch'])
+		.on('restart', function() {
+			console.log('Restarted!');
+		});
+});
+
+// defining the main gulp task
+gulp.task('default', ['nodemon']);
